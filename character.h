@@ -13,7 +13,6 @@ typedef struct {
 void buatKarakter(Player *p) {
     printf("=== PEMBUATAN KARAKTER ===\n");
 
-    // Input nama karakter
     printf("Masukkan nama karakter: ");
     scanf("%s", p->nama);
 
@@ -26,7 +25,6 @@ void buatKarakter(Player *p) {
     printf("Pilihanmu: ");
     scanf("%d", &pilihan);
 
-    // Set atribut berdasarkan role
     if (pilihan == 1) {
         strcpy(p->role, "Fighter");
         p->darah = 50;
@@ -57,7 +55,6 @@ void buatKarakter(Player *p) {
         p->critChance = 5;
     }
 
-    // Tampilkan karakter
     printf("\n=== KARAKTER BERHASIL DIBUAT ===\n");
     printf("Nama  : %s\n", p->nama);
     printf("Role  : %s\n", p->role);
