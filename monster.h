@@ -12,7 +12,7 @@ int monsterY[TOTAL_MONSTER];
 int monsterAlive[TOTAL_MONSTER];
 Entity monsterData[TOTAL_MONSTER];
 
-Entity makeMonster(int col) {
+Entity buatMonster(int col) {
     Entity m;
 
     if (col == 1) {
@@ -39,14 +39,14 @@ Entity makeMonster(int col) {
     return m;
 }
 
-void initAllMonsters() {
+void semuaMonsters() {
     int idx = 0;
     for (int col = 1; col <= 4; col++) {
         for (int row = 0; row < MAP_SIZE; row++) {
             monsterX[idx] = col;
             monsterY[idx] = row;
             monsterAlive[idx] = 1;
-            monsterData[idx] = makeMonster(col);
+            monsterData[idx] = buatMonster(col);
             idx++;
         }
     }

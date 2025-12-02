@@ -54,14 +54,7 @@ void buatKarakter(Player *p) {
         p->pertahanan = 5;
         p->critChance = 5;
     }
-<<<<<<< HEAD
-    
-=======
 
-<<<<<<< HEAD
-=======
->>>>>>> 973c5c814bd22b5d70efdf2bfff384ef9352e1eb
->>>>>>> 33b5e8172c05a8bf679584fb0b3df7f89e2b0847
     printf("\n=== KARAKTER BERHASIL DIBUAT ===\n");
     printf("Nama  : %s\n", p->nama);
     printf("Role  : %s\n", p->role);

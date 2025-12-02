@@ -18,11 +18,11 @@ Entity convertPlayer(Player *p) {
     e.critMultiplier = 1.6;
     return e;
 }
-void buffOrcWin(Player *p, Entity *playerEntity) {
-    p->darah = 100;                       // HP langsung penuh
-    p->serangan += 5;                  // attack buff +5
+void buffplayer(Player *p, Entity *playerEntity) {
+    p->darah = 100;                       
+    p->serangan += 5;                  
 
-    // update entity untuk battle berikutnya
+    
     playerEntity->darah = p->darah;
     playerEntity->serangan = p->serangan;
 
@@ -37,12 +37,14 @@ int main() {
 
     Player p;
     buatKarakter(&p);
+    printf("Pada suatu hari, desa Land of Dawn dijajah dan ditaklukan oleh raja iblis yang bernama King Balmond, dia dan para bawahannya berhasil menguasai desa\n");
+    printf("Seorang hero bernama %s datang dan bertekad merebut kembali tanah Land of Dawn dari kekuasaan King Balmond", p.nama);
     Entity player = convertPlayer(&p);
 
     int px = 0, py = 2;
     char input;
 
-    initAllMonsters();
+    semuaMonsters();
 
     while (1) {
         printf("\n====== MAP ======\n");
@@ -69,14 +71,24 @@ int main() {
                 startBattle(&player, &monsterData[i]);
 
                 if (monsterData[i].darah <= 0) {
-    printf(" %s telah dikalahkan!\n", monsterData[i].nama);
+    printf(" %s telah dikalahkan!\n", monsterData[i].nama, p.nama);
     monsterAlive[i] = 0;
 
-    // Jika ORC kalah → buff player
+    
     if (monsterX[i] == 3) {
-        buffOrcWin(&p, &player);
-    }
+        buffplayer(&p, &player);
+    } 
+    if (strcmp(monsterData[i].nama, "King Balmond") == 0 && monsterData[i].darah <= 0) {
+
+    printf("\nSelamat %s! Kamu telah mengalahkan King Balmond!\n", p.nama);
+    printf("Land of Dawn kembali damai...\n");
+    printf("===== GAME SELESAI =====\n");
+
+    return 0; // Stop program langsung
 }
+
+} 
+
 
 
                 if (player.darah <= 0) {
