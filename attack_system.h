@@ -58,7 +58,20 @@ static void startBattle(Entity *player, Entity *enemy) {
             player->pertahanan += 5;
             printf(" Defense naik +5 untuk 1 turn!\n");
         } 
-        else {
+        else if (pilihan == 4) {
+            saveGame(0, 0, player->darah);
+            continue;
+        }
+        else if (pilihan == 5) {
+            int dummyX, dummyY, loadedHP;
+            loadGame(&dummyX, &dummyY, &loadedHP);
+
+            player->darah = loadedHP;
+
+            printf(" HP kamu di-load menjadi: %d\n", player->darah);
+            continue;
+        }
+        else{
             printf("Pilihan tidak valid.\n");
             continue;
         }
